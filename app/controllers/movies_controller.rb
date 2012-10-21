@@ -18,7 +18,7 @@ helper_method :sort_column, :sort_direction
     end
     @all_ratings = Movie.all_ratings
     test = {:'G' => "1", :'PG' => "1", :'PG-13' => "1", :'NC-17' => "1", :'R' => "1"}
-    @selected_ratings = params[:ratings] || session[:ratings] || test
+    @selected_ratings = params[:ratings] || session[:ratings] || {}
 
     if params[:sort] != session[:sort]
       session[:sort] = sort
