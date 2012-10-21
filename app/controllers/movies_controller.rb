@@ -8,6 +8,7 @@ helper_method :sort_column, :sort_direction
   end
 
   def index
+    reset_session
     sort = params[:sort] || session[:sort]
     case sort
     when 'title'
@@ -16,13 +17,14 @@ helper_method :sort_column, :sort_direction
       ordering,@date_header = {:order => :release_date}, 'hilite'
     end
     @all_ratings = Movie.all_ratings
-    @selected_ratings = params[:ratings] || session[:ratings] || {}
+    test = {:'G' => "1", :'PG' => "1", :'PG-13' => "1", :'NC-17' => "1", :'R' => "1"}
+    @selected_ratings = params[:ratings] || session[:ratings] || test
 
     if params[:sort] != session[:sort]
       session[:sort] = sort
       redirect_to :sort => sort, :ratings => @selected_ratings and return
     end
-
+    
     if params[:ratings] != session[:ratings] and @selected_ratings != {}
       session[:sort] = sort
       session[:ratings] = @selected_ratings
