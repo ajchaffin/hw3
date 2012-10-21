@@ -8,7 +8,7 @@ helper_method :sort_column, :sort_direction
   end
 
   def index
-    session_reset
+    
     sort = params[:sort] || session[:sort]
     case sort
     when 'title'
