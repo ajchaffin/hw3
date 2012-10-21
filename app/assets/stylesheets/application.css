@@ -48,6 +48,14 @@ table#movies th, table#movies td {
   padding: 4px;
   text-align: left;
 }
+table#movies th .hilite {
+  background-color: yellow;
+  background-image: url(home/ubuntu/Documents/rottenpotatoes/hw2_rottenpotatoes/app/assets/images/downarrow.gif);
+}
+table#movies th .hilite desc {
+  background-color: yellow;
+  background-image: url(/images/downarrow.gif);
+}
 #notice #warning {
   background: rosybrown;
   margin: 1em 0;
